@@ -25,6 +25,39 @@ function validasiForm() {
     else {
         peringatanView.style ="display: none"
     }
+
+    // logika untuk user ketika menginput setiap hasil umur anda sekarang adalah ditambah dengan konten text tambahan ( .innerHTML += ) berupa golongan
+    if(hasil <= 3 && hasil >= 1) {
+        hasilView.innerHTML += ' Anda balita'
+    }
+
+    else if(hasil <= 12 && hasil >= 3) {
+        hasilView.innerHTML += ' anda masih anak-anak'
+    }
+    else if(hasil <= 20 && hasil >= 12) {
+        hasilView.innerHTML += ' anda sudah remaja'
+    }
+    else if(hasil <= 40 && hasil >= 21) {
+        hasilView.innerHTML += ' anda sudah dewasa'
+    }
+    else if(hasil <= 80 && hasil >= 40) {
+        hasilView.innerHTML += ' anda sudah lansia'
+    }
+    else if(hasil <= 9999 && hasil >= 100) {
+        hasilView.innerHTML += ' anda sudah terlalu tua, umurnya lebih dari nenek moyang gua'
+    }
+
+    else {
+        hasilView.innerHTML += ' anda masih bayi'
+    }
+
+    // logika ketika user menginput sebuah angka (inputUltahValue) lebih dari > tahun saat ini secara (realtime) dan mengubah konten dari peringatanView menjadi tahun kelahiran tidak boleh lebih dari tahun sekarang
+    if (inputUltahValue > tahunSekarang) {
+        hasilView.style = 'display: none;'
+        peringatanView.style ='display: block; color: red;'
+        peringatanView.innerHTML = ' tahun kelahiran anda melebihi tahun sekarang'
+    }
+    
 }
 
 //validasi onkeydown di dalam input ketika user mengenter lalu memanggil logic yang ada di validasiform di dalam onclick tag button dengan value submit
